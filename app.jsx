@@ -1,4 +1,6 @@
-// https://en.wikipedia.org/wiki/List_of_Game_of_Thrones_characters
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 var PLAYERS = [
   {
     name: "Tyrion Lannister",
