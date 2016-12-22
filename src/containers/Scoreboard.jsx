@@ -3,6 +3,7 @@ import React from 'react';
 import Stopwatch from '../components/Stopwatch';
 import Counter from '../components/Counter';
 import Stats from '../components/Stats';
+import AddPlayerForm from '../components/AddPlayerForm';
 import '../../css/app.css';
 
 const INITIAL_STATE = {
@@ -160,35 +161,5 @@ Player.propTypes = {
   onScoreChange: React.PropTypes.func.isRequired,
   onRemove: React.PropTypes.func.isRequired,
 };
-
-// Logical Component
-const AddPlayerForm = React.createClass({
-  propTypes:{
-    onAdd: React.PropTypes.func.isRequired,
-  },
-  getInitialState: function(){
-    return{
-      name: "",
-    };
-  },
-  onNameChange: function(e){
-    this.setState({name: e.target.value})
-  },
-  onSubmit: function(e){
-    e.preventDefault();
-    this.props.onAdd(this.state.name);
-    this.setState({name: ""});
-  },
-  render: function(){
-    return(
-      <div className="add-player-form">
-        <form onSubmit={this.onSubmit}>
-          <input type="text" value={this.state.name} onChange={this.onNameChange}/>
-          <input type="submit" value="Add Player"/>
-        </form>
-      </div>
-    );
-  }
-});
 
 export default Scoreboard;
