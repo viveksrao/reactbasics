@@ -1,4 +1,5 @@
 module.exports = {
+  devtool: 'inline-sourcemap',
   entry: './index.jsx',
   output: {
     filename:'bundle.js'
@@ -11,7 +12,9 @@ module.exports = {
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        loaders:['babel-loader']
+        loaders:[
+          'babel-loader'
+        ]
       },
       {
         test:/\.css$/,

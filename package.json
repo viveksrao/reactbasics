@@ -6,7 +6,7 @@
   "scripts": {
     "prestart":"npm run lint",
     "start": "webpack-dev-server --port 8000 --progress --inline --hot",
-    "lint":"eslint *.{js, jsx} --fix",
+    "lint":"eslint ./src/**/*.{js, jsx} --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
