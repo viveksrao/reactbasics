@@ -1,5 +1,8 @@
+// Container Component
 import React from 'react';
 import Stopwatch from '../components/Stopwatch';
+import Counter from '../components/Counter';
+import Stats from '../components/Stats';
 import '../../css/app.css';
 
 const INITIAL_STATE = {
@@ -69,6 +72,7 @@ const INITIAL_STATE = {
 
 var nextId = 112;
 
+
 const Scoreboard = React.createClass({
   getInitialState: function(){
     return INITIAL_STATE;
@@ -117,6 +121,7 @@ const Scoreboard = React.createClass({
   }
 });
 
+// Pure Component
 function Header(props){
   return(
     <div className="header">
@@ -132,31 +137,7 @@ Header.propTypes = {
   players: React.PropTypes.array.isRequired,
 };
 
-function Stats(props){
-  var totalPlayers = props.players.length;
-  var totalPoints = props.players.reduce(function(total, player){
-    return total + player.score;
-  }, 0);
-  return(
-    <table className="stats">
-      <tbody>
-        <tr>
-          <td>Players:</td>
-          <td>{totalPlayers}</td>
-        </tr>
-        <tr>
-          <td>Total Points:</td>
-          <td>{totalPoints}</td>
-        </tr>
-      </tbody>
-    </table>
-  )
-}
-
-Stats.propTypes = {
-  players: React.PropTypes.array.isRequired,
-};
-
+// Pure Component
 function Player(props){
   return(
     <div className="player">
@@ -180,23 +161,7 @@ Player.propTypes = {
   onRemove: React.PropTypes.func.isRequired,
 };
 
-function Counter(props){
-  return(
-    <div className="counter">
-      <button className="counter-action decrement" onClick={function(){props.onChange(-1);}}> - </button>
-      <div className="counter-score">
-        {props.score}
-      </div>
-      <button className="counter-action increment" onClick={function(){props.onChange(1);}}> + </button>
-    </div>
-  );
-};
-
-Counter.propTypes = {
-  score: React.PropTypes.number.isRequired,
-  onChange: React.PropTypes.func.isRequired,
-};
-
+// Logical Component
 const AddPlayerForm = React.createClass({
   propTypes:{
     onAdd: React.PropTypes.func.isRequired,
