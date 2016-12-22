@@ -1,8 +1,10 @@
 module.exports = {
-  entry: './app.jsx' ,
+  entry: './index.jsx',
   output: {
-    // path: 'build',
     filename:'bundle.js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   module:{
     loaders:[
